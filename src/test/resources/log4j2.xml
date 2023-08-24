@@ -1,0 +1,43 @@
+<Configuration status="off">
+    <Properties>
+        <Property name="logFilePath">logs</Property>
+    </Properties>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%m%n"/>
+        </Console>
+        <RollingFile name="RollingFile"
+                     fileName="${logFilePath}\logs.log"
+                     filePattern="${logFilePath}\old\logs-%i.log.gz">
+            <ThresholdFilter level="DEBUG"/>
+            <PatternLayout>
+                <Pattern>%d %-5p %m%n</Pattern>
+                <charset>UTF-8</charset>
+            </PatternLayout>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="100 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="100"/>
+        </RollingFile>
+        <RollingFile name="RollingFileError"
+                     fileName="${logFilePath}\logs_errors.log"
+                     filePattern="${logFilePath}\old\logs_errors-%i.log.gz">
+            <ThresholdFilter level="ERROR"/>
+            <PatternLayout>
+                <Pattern>%d %-5p %m%n</Pattern>
+                <charset>UTF-8</charset>
+            </PatternLayout>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="100 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="RollingFile" />
+            <AppenderRef ref="RollingFileError" />
+        </Root>
+    </Loggers>
+</Configuration>
