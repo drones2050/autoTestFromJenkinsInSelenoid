@@ -20,7 +20,6 @@ import org.openqa.selenium.remote.LocalFileDetector;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.util.HashMap;
 import java.util.Map;
 

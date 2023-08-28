@@ -3,7 +3,6 @@ package core.config;
 import lombok.extern.log4j.Log4j2;
 
 import java.io.InputStream;
-import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.Map;
@@ -12,7 +11,7 @@ import java.util.stream.Collectors;
 
 @Log4j2
 public class Configure {
-    private static final String APP_PROPERTIES = "config\\app.properties";
+    private static final String APP_PROPERTIES = "config/app.properties";
     private static Properties properties;
 
     static {
